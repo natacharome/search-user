@@ -1,0 +1,33 @@
+<section class="container">
+  <div class="search">
+    <div class="search-icon-container">
+      <div class="search-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <input type="text" [formControl]="searchInput" placeholder="Rechercher..." class="search-control">
+    </div>
+    
+    <div (click)="removeItems()" class="clear-results"><i class="fa-solid fa-xmark"></i></div>
+</div>
+
+<div class="results" *ngIf="users.length; else noResults">
+  <div class="card-result">
+    <div *ngFor="let user of users" class="card-item">
+      <div>
+        <img src="{{user.avatar}}" class="avatar" alt="avatar-image">
+      </div>
+      <div>
+        <div> {{ user.first_name }} {{ user.last_name }}</div>
+        <div> {{ user.email }}</div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<ng-template  #noResults>
+  <div class="no-results">
+    Pas de resultat pour cette recherche
+  </div>
+</ng-template>
+</section>
+
