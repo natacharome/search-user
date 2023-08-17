@@ -13,8 +13,4 @@ export class SearchService {
   getUsers(page: number): Observable<any> {
     return this.http.get(`${this.baseUrl}?page=${page}`);
   }
-
-  getConfig(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
 }
